@@ -1,19 +1,19 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
+from flask_cors import CORS  # ✅ CORS Added
 import pandas as pd
 import os
 import logging
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # ✅ Allows Vercel frontend
 
-# Logging (TCS Standard)
+# Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Load data
-DATA_PATH = 'C:/Users/HP/Desktop/ecommerce-sales-insights/data/processed/sales_clean.csv'
+# Load data (Render fix ↓)
+DATA_PATH = os.path.join(os.path.dirname(__file__), 'data/processed/sales_clean.csv')
 df = pd.read_csv(DATA_PATH) if os.path.exists(DATA_PATH) else pd.DataFrame()
 logger.info(f"Loaded {len(df)} rows")
 
@@ -44,5 +44,3 @@ def categories():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-
-
