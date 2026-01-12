@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5>Total Sales</h5>
+                <h2>${{ total_sales|default('1.2M') }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5>Total Orders</h5>
+                <h2>{{ orders|default('5,800') }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5>Avg Order Value</h5>
+                <h2>${{ aov|default('$210') }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5>Customers</h5>
+                <h2>{{ customers|default('3,200') }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
