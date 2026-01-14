@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Load data (Render fix ↓)
-DATA_PATH = os.path.join(os.path.dirname(__file__), 'data/processed/sales_clean.csv')
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'processed', 'sales_clean.csv')
 df = pd.read_csv(DATA_PATH) if os.path.exists(DATA_PATH) else pd.DataFrame()
 logger.info(f"Loaded {len(df)} rows")
 
